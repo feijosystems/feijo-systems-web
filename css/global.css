@@ -55,3 +55,61 @@ body {
     opacity: 1;
     bottom: 50px; /* Sobe um pouquinho */
 }
+
+/* =========================================
+   📱 MODO MOBILE (Salvação do Celular)
+   Cole isso no final do seu CSS Global
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* 1. Ajuste Geral */
+    body {
+        padding: 15px; /* Dá um respiro nas bordas */
+        overflow-x: hidden; /* Proíbe rolagem lateral na página inteira */
+    }
+
+    /* 2. Textos Gigantes Diminuem */
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.5rem !important; }
+    p { font-size: 1rem !important; }
+
+    /* 3. Tudo que está lado a lado, fica empilhado */
+    .container, .hero, section, footer {
+        display: flex;
+        flex-direction: column !important; /* A MÁGICA ACONTECE AQUI */
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* 4. Formulários e Caixas ocupam a tela toda */
+    .form-box, .login-box, input, select, textarea, button {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box; /* Garante que a borda não estoure a tela */
+    }
+
+    /* 5. Imagens não estouram a tela */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* 6. Admin / Kanban no Celular */
+    /* Faz o Kanban ter rolagem lateral suave */
+    .kanban-board {
+        display: flex !important;
+        flex-direction: row !important; /* Mantém colunas lado a lado */
+        overflow-x: auto !important; /* Libera rolagem lateral */
+        scroll-snap-type: x mandatory; /* Faz "travar" na coluna certa */
+        padding-bottom: 20px;
+        gap: 15px;
+    }
+
+    .kanban-column {
+        min-width: 85vw; /* Cada coluna ocupa 85% da tela do celular */
+        scroll-snap-align: center; /* Centraliza ao rolar */
+        margin-bottom: 0;
+    }
+}
