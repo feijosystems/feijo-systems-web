@@ -113,3 +113,35 @@ body {
         margin-bottom: 0;
     }
 }
+
+/* =========================================
+   FIX DO LOGO GIGANTE NO MOBILE 📱
+   (Cole no final do arquivo global.css)
+   ========================================= */
+
+@media (max-width: 768px) {
+    
+    /* Diminui o tamanho da fonte do Título/Logo */
+    header h1, .logo, .navbar-brand {
+        font-size: 1.4rem !important; /* Era gigante, agora é médio */
+        line-height: 1.2; /* Junta um pouco as linhas se quebrar */
+        text-align: center; /* Fica mais bonito centralizado no celular */
+        margin-bottom: 15px; /* Dá um respiro pro conteúdo de baixo */
+    }
+
+    /* Se o seu logo for uma IMAGEM, isso segura o tamanho dela */
+    header img, .logo img {
+        max-width: 60%; /* Ocupa só 60% da largura da tela */
+        height: auto;
+        display: block;
+        margin: 0 auto; /* Centraliza a imagem */
+    }
+    
+    /* Ajuste da barra de navegação (Menu) pra não ficar colada */
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
