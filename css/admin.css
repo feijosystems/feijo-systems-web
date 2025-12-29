@@ -1,0 +1,130 @@
+/* css/admin.css */
+
+/* 1. MUDANÇA PRINCIPAL: O Body agora é um Flex Container vertical */
+body {
+    height: 100vh; /* Ocupa 100% da altura da janela */
+    width: 100vw;
+    margin: 0;
+    padding: 20px; /* Mantive seu padding */
+    background-color: #050505;
+    color: white;
+    font-family: var(--font-body);
+    
+    display: flex; 
+    flex-direction: column; /* Organiza: Header em cima, Board embaixo */
+    overflow: hidden; /* PROIBIDO rolar a página inteira */
+    box-sizing: border-box;
+}
+
+/* O Header não pode encolher nem crescer, tem tamanho fixo */
+header {
+    flex-shrink: 0; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+}
+
+h1 span { color: var(--accent); }
+
+/* --- BARRA DE PESQUISA --- */
+.search-container { flex-grow: 1; margin: 0 40px; text-align: center; }
+
+#search-bar {
+    width: 100%; max-width: 500px; padding: 10px 15px;
+    background: #111; border: 1px solid #333; color: white;
+    border-radius: 20px; outline: none; transition: 0.3s;
+    font-family: var(--font-body);
+}
+#search-bar:focus { border-color: var(--accent); box-shadow: 0 0 15px rgba(138, 43, 226, 0.2); }
+
+
+/* --- 2. O BOARD OCUPA O RESTO DA TELA --- */
+.kanban-board {
+    flex-grow: 1; /* Ocupa todo o espaço que sobrar abaixo do header */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Colunas */
+    gap: 15px;
+    
+    /* Importante: Garante que o grid não estoure a tela */
+    height: 100%; 
+    overflow: hidden; 
+    padding-bottom: 10px;
+}
+
+/* --- 3. A COLUNA MÁGICA --- */
+.kanban-column {
+    background: #0f0f0f;
+    border: 1px solid #222;
+    border-radius: 12px;
+    
+    display: flex;
+    flex-direction: column; /* Header da coluna em cima, lista embaixo */
+    
+    max-height: 100%; /* Nunca passa do tamanho do pai */
+    overflow: hidden; /* Segura o conteúdo dentro da borda */
+}
+
+.column-header {
+    flex-shrink: 0; /* O título da coluna nunca some */
+    padding: 15px; text-align: center; font-family: var(--font-display);
+    font-size: 0.9rem; border-bottom: 1px solid #222; 
+    background: rgba(255, 255, 255, 0.02); letter-spacing: 1px; font-weight: bold;
+}
+
+/* Cores das Colunas */
+.col-pendente .column-header { color: #FFD700; border-top: 3px solid #FFD700; }
+.col-aceito .column-header { color: #00FF7F; border-top: 3px solid #00FF7F; }
+.col-concluido .column-header { color: #00BFFF; border-top: 3px solid #00BFFF; }
+.col-recusado .column-header { color: #FF4444; border-top: 3px solid #FF4444; }
+
+/* --- 4. A LISTA DE CARDS (AQUI QUE O SCROLL ACONTECE) --- */
+.card-list {
+    flex-grow: 1; /* Ocupa o resto da coluna */
+    overflow-y: auto; /* SCROLL VERTICAL ATIVADO */
+    padding: 10px;
+    
+    /* O HACK DO SCROLL: */
+    min-height: 0; 
+}
+
+/* Custom Scrollbar Fina */
+.card-list::-webkit-scrollbar { width: 6px; }
+.card-list::-webkit-scrollbar-track { background: transparent; }
+.card-list::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+.card-list::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* --- CARD DESIGN --- */
+.card {
+    background: #1a1a1a; border: 1px solid #333; padding: 15px;
+    border-radius: 8px; margin-bottom: 15px; position: relative;
+    transition: transform 0.2s, border-color 0.2s;
+    flex-shrink: 0; /* Impede que o card seja esmagado */
+}
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.card h3 { color: white; margin-bottom: 5px; font-size: 1rem; }
+.card .badge { font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; background: #333; color: #ccc; text-transform: uppercase; font-weight: 600; }
+.card p { color: #aaa; font-size: 0.85rem; margin: 10px 0; line-height: 1.4; }
+
+/* --- BOTÕES --- */
+.actions { display: flex; gap: 8px; margin-top: 15px; border-top: 1px solid #333; padding-top: 10px; }
+.btn-action { flex: 1; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.75rem; transition: 0.2s; text-transform: uppercase; }
+
+.btn-accept { background: rgba(0, 255, 127, 0.1); color: #00FF7F; border: 1px solid #00FF7F; }
+.btn-accept:hover { background: #00FF7F; color: black; }
+.btn-finish { background: rgba(0, 191, 255, 0.1); color: #00BFFF; border: 1px solid #00BFFF; }
+.btn-finish:hover { background: #00BFFF; color: black; }
+.btn-reject { background: rgba(255, 68, 68, 0.1); color: #FF4444; border: 1px solid #FF4444; }
+.btn-reject:hover { background: #FF4444; color: white; }
+
+.btn-zap { background: #25D366; color: black; text-decoration: none; display: block; text-align: center; padding: 8px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-top: 10px; transition: 0.2s; }
+.btn-zap:hover { opacity: 0.8; }
+
+/* Mobile Responsive */
+@media (max-width: 1000px) {
+    .kanban-board { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; }
+    .kanban-column { min-width: 85vw; scroll-snap-align: center; }
+    .search-container { margin: 0 10px; }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Restrito | Feijó Systems</title>
+    <link rel="stylesheet" href="css/global.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #1a0b2e 0%, #000000 100%);
+        }
+        .login-box {
+            background: #0a0a0a;
+            padding: 40px;
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(138, 43, 226, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 350px;
+        }
+        h2 { font-family: var(--font-display); margin-bottom: 20px; color: white; }
+        input { margin-bottom: 15px; text-align: center; }
+        .error-msg { color: #ff4444; font-size: 0.8rem; margin-top: 10px; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>ÁREA RESTRITA</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="E-mail CEO" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button type="submit" class="btn-submit">ACESSAR SISTEMA</button>
+            <p id="erro" class="error-msg">Acesso Negado.</p>
+        </form>
+        <a href="index.html" style="color: #666; font-size: 0.8rem; margin-top: 20px; display: block; text-decoration: none;">&larr; Voltar ao site</a>
+    </div>
+
+    <script type="module" src="js/login.js"></script>
+</body>
+</html>

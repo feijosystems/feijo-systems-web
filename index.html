@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feijó Systems | Soluções Digitais</title>
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+    <div id="toast">✅ Pedido Enviado com Sucesso!</div>
+    
+<body>
+
+
+    <header>
+        <div class="logo">FEIJÓ<span class="highlight">SYSTEMS</span></div>
+        <a href="#contato" class="btn-contact">Orçamento</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="tagline">DEVELOPMENT & AUTOMATION</span>
+            <h1>TRANSFORMANDO <br> CAOS EM <span class="glow">CÓDIGO</span>.</h1>
+            <p class="description">Sites, Sistemas Web e Automação de alta performance.</p>
+            <a href="#contato" class="btn-primary">Iniciar Projeto</a>
+        </div>
+    </section>
+
+    <section id="contato" class="contact-section">
+        <h2>INICIAR PROTOCOLO</h2>
+        <form id="projectForm">
+            <div class="form-group">
+                <label>Nome / Empresa</label>
+                <input type="text" id="name" placeholder="EX: Confeitaria da gih" required>
+            </div>
+            <div class="form-group">
+                <label>E-mail Corporativo</label>
+                <input type="email" id="email" placeholder="contato@empresa.com" required>
+            </div>
+            <div class="form-group">
+                <label>WhatsApp</label>
+                <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" required>
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label>Tipo de Projeto</label>
+                    <select id="type" required>
+                        <option value="" disabled selected>Selecione uma opção...</option> <option value="Site Institucional">Site Institucional</option>
+                        <option value="Landing Page">Landing Page (Vendas)</option>
+                        <option value="Sistema Web">Sistema Web / SaaS</option>
+                        <option value="Bot">Automação / Bot</option>
+                        <option value="outro">Outro (Especificar...)</option> </select>
+                </div>
+
+                <div class="form-group" id="outro-container" style="display: none;">
+                    <label>Qual seria o projeto?</label>
+                    <input type="text" id="outro-input" placeholder="Ex: App de Delivery, API, etc...">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Detalhes</label>
+                <textarea id="details" rows="4" placeholder="Descreva o que você precisa ou sua ideia" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">ENVIAR DADOS</button>
+        </form>
+    </section>
+
+    <div id="modal-confirmacao" class="modal-overlay">
+        <div class="modal-box">
+            <h3>🔍 CONFERIR DADOS</h3>
+            <p>Verifique se as informações estão corretas antes de enviar.</p>
+            
+            <div class="review-data">
+                <p><strong>Nome:</strong> <span id="rev-nome"></span></p>
+                <p><strong>E-mail:</strong> <span id="rev-email"></span></p>
+                <p><strong>WhatsApp:</strong> <span id="rev-zap"></span></p>
+                <p><strong>Tipo:</strong> <span id="rev-tipo"></span></p>
+            </div>
+
+            <div class="modal-buttons">
+                <button id="btn-voltar" class="btn-secondary">✏️ Corrigir</button>
+                <button id="btn-confirmar" class="btn-primary">🚀 Confirmar e Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Feijó Systems.</p>
+        <a href="admin.html" class="admin-link">Area Restrita</a>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

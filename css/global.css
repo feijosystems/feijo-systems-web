@@ -1,0 +1,57 @@
+/* css/global.css */
+
+html {
+    scroll-behavior: smooth; /* <--- O segredo tá aqui */
+}
+
+:root {
+    --bg-color: #050505; /* Black Piano */
+    --card-bg: #0a0a0a;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent: #8A2BE2; /* Roxo Feijó */
+    --accent-glow: #bf00ff; /* Neon */
+    --font-display: 'Orbitron', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+/* Scrollbar estilizada */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-color); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+
+/* TOAST (Notificação Flutuante) */
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #00FF7F; /* Verde Sucesso */
+    color: black;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px rgba(0, 255, 127, 0.4);
+    font-weight: bold;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s;
+}
+
+#toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px; /* Sobe um pouquinho */
+}

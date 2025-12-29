@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEO Dashboard | Feijó Systems</title>
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/admin.css"> </head>
+<body>
+
+    <header>
+        <h1>FEIJÓ<span>SYS</span></h1>
+        
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="🔍 Buscar cliente ou projeto...">
+        </div>
+
+        <button onclick="fazerLogout()" style="background:none; border:none; color:#666; cursor:pointer; font-size:1rem;">Sair 🔒</button>
+    </header>
+
+    <div class="kanban-board">
+        
+        <div class="kanban-column col-pendente">
+            <div class="column-header">🟡 PENDENTES</div>
+            <div id="lista-pendentes" class="card-list"></div>
+        </div>
+
+        <div class="kanban-column col-aceito">
+            <div class="column-header">🟢 PRODUÇÃO</div>
+            <div id="lista-aceitos" class="card-list"></div>
+        </div>
+
+        <div class="kanban-column col-concluido">
+            <div class="column-header">🔵 CONCLUÍDOS</div>
+            <div id="lista-concluidos" class="card-list"></div>
+        </div>
+
+        <div class="kanban-column col-recusado">
+            <div class="column-header">🔴 ARQUIVO</div>
+            <div id="lista-recusados" class="card-list"></div>
+        </div>
+
+    </div>
+
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

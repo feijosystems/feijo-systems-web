@@ -1,0 +1,124 @@
+/* css/style.css */
+
+/* --- Header --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+}
+.logo { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; letter-spacing: 2px; }
+.highlight { color: var(--accent-glow); text-shadow: 0 0 10px rgba(191, 0, 255, 0.5); }
+.btn-contact { border: 1px solid var(--accent); padding: 8px 20px; border-radius: 4px; color: var(--accent); text-decoration: none; transition: 0.3s; }
+.btn-contact:hover { background: var(--accent); color: white; }
+
+/* --- Hero Section --- */
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    background: radial-gradient(circle at center, rgba(138, 43, 226, 0.08) 0%, transparent 70%);
+}
+h1 { font-family: var(--font-display); font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+.glow { color: var(--accent-glow); text-shadow: 0 0 20px rgba(138, 43, 226, 0.6); }
+.tagline { color: var(--accent); letter-spacing: 4px; font-weight: 600; margin-bottom: 20px; display: block; }
+.description { color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; }
+
+.btn-primary {
+    background: var(--accent); color: white; padding: 15px 30px; text-decoration: none; font-weight: 600; border-radius: 4px;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4); transition: 0.3s;
+}
+.btn-primary:hover { background: var(--accent-glow); box-shadow: 0 0 30px rgba(138, 43, 226, 0.7); }
+
+/* --- Formulário --- */
+.contact-section { padding: 80px 5%; max-width: 600px; margin: 0 auto; }
+.contact-section h2 { font-family: var(--font-display); text-align: center; margin-bottom: 40px; }
+
+form { background: var(--card-bg); padding: 30px; border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; }
+.form-group { margin-bottom: 20px; }
+label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; }
+input, select, textarea {
+    width: 100%; background: #000; border: 1px solid #333; padding: 12px; color: white; border-radius: 4px;
+    font-family: var(--font-body);
+}
+input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+
+.btn-submit {
+    width: 100%; padding: 15px; background: transparent; border: 1px solid var(--accent); color: var(--accent);
+    font-weight: bold; cursor: pointer; transition: 0.3s; font-family: var(--font-display); letter-spacing: 1px;
+}
+.btn-submit:hover { background: var(--accent); color: white; }
+
+/* --- Footer --- */
+footer { text-align: center; padding: 40px; border-top: 1px solid #111; color: #444; font-size: 0.8rem; }
+.admin-link { color: #111; text-decoration: none; }
+
+/* --- MODAL (POP-UP) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Fundo escuro */
+    display: none; /* Começa invisível */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-box {
+    background: #111;
+    border: 1px solid var(--accent);
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
+    animation: surgimento 0.3s ease-out;
+}
+
+.modal-box h3 {
+    font-family: var(--font-display);
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.review-data {
+    text-align: left;
+    background: #050505;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 1px solid #222;
+}
+
+.review-data p {
+    color: #ccc;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.review-data strong { color: var(--accent); }
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.modal-buttons button {
+    width: 100%;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Animaçãozinha de entrada */
+@keyframes surgimento {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
